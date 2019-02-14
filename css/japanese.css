@@ -1,0 +1,375 @@
+/* japanese */
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+body {
+  background: #A4F3BF;
+  color: #686868;
+  font-family: 'Nunito';
+}
+
+.pair-container {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 300px;
+  height: 150px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(94,94,94,1);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(94,94,94,1);
+  box-shadow: 0px 0px 10px 0px rgba(94,94,94,1);
+  background: white;
+}
+
+.pair-container div {
+  display: inline-block;
+  float: left;
+  position: relative;
+  width: 50%;
+  text-align: center;
+  top: 50px;
+  font-size: 32px;
+  color: #686868;
+}
+
+#generate-btn {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  font-size: 24px;
+  padding: 4px;
+  top: 25px;
+  color: #686868;
+  border-radius: 4px;
+  background: white;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(94,94,94,1);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(94,94,94,1);
+  box-shadow: 2px 2px 15px 0px rgba(94,94,94,1);
+  cursor: pointer;
+  border: none;
+}
+
+#generate-btn:hover {
+  background: #686868;
+  color: white;
+  transition: 0.5s;
+}
+
+#hiragana-title {
+  color: white;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  font-weight: 100;
+  text-align: center;
+  top: 75px;
+}
+
+#table-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+#table-wrapper {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+}
+
+#hiragana-table {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 27%;
+}
+
+#table-container2 {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+#table-wrapper2 {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+}
+
+#hiragana-table2 {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 69%;
+}
+
+@media (max-width: 1300px) and (min-width: 1290px) {
+  #hiragana-table {
+    width: 30%;
+  }
+}
+
+@media (max-width: 1290px) and (min-width: 1114px) {
+  #hiragana-table {
+    width: 35%;
+  }
+}
+
+@media (max-width: 1114px) and (min-width: 1000px) {
+  #hiragana-table {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 838px) {
+  #hiragana-table {
+    width: 48%;
+  }
+}
+
+@media (max-width: 838px) and (min-width: 790px) {
+  #hiragana-table {
+    width: 50%;
+  }
+}
+
+@media (max-width: 838px) and (min-width: 790px) {
+  #hiragana-table {
+    width: 50%;
+  }
+}
+
+@media (max-width: 789px) and (min-width: 721px) {
+  #hiragana-table {
+    width: 55%;
+  }
+}
+
+@media (max-width: 720px) and (min-width: 665px) {
+  #hiragana-table {
+    width: 60%;
+  }
+}
+
+@media (max-width: 664px) and (min-width: 615px) {
+  #hiragana-table {
+    width: 65%;
+  }
+}
+
+@media (max-width: 615px) and (min-width: 573px) {
+  #hiragana-table {
+    width: 70%;
+  }
+}
+
+@media (max-width: 572px) and (min-width: 537px) {
+  #hiragana-table {
+    width: 75%;
+  }
+}
+
+@media (max-width: 536px) and (min-width: 506px) {
+  #hiragana-table {
+    width: 80%;
+  }
+}
+
+@media (max-width: 505px) and (min-width: 480px) {
+  #hiragana-table {
+    width: 85%;
+  }
+}
+
+@media (max-width: 480px) and (min-width: 250px) {
+  #hiragana-table {
+    width: 90%;
+  }
+
+  .table-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .box-half {
+    font-size: 14px;
+  }
+
+  .boxhalf {
+    font-size: 14px;
+  }
+}
+
+.table-row {
+  display: block;
+  float: left;
+}
+
+.table-box {
+  width: 55px;
+  height: 55px;
+  background: white;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 6px;
+  position: relative;
+  float: left;
+}
+
+.box-half {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+}
+
+.boxhalf {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+}
+
+@media (max-width: 479px) and (min-width: 250px) {
+  #hiragana-table {
+    width: 95%;
+  }
+
+  .table-box {
+    width: 48px;
+    height: 48px;
+  }
+
+  .box-half {
+    font-size: 16px;
+  }
+
+  .boxhalf {
+    font-size: 16px;
+  }
+}
+
+/* patterns */
+#patterns-container {
+  text-align: center;
+}
+
+.pattern {
+  padding: 6px;
+}
+
+.content-container {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  background: white;
+  width: 400px;
+  top: 100px;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+#character-similarities {
+  overflow-x: auto;
+}
+
+/* sentence order */
+#sentences-container {
+  overflow: auto;
+}
+
+.sentence-text {
+  text-align: center;
+}
+
+#sentence-order {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  left: 25%;
+}
+
+.language-title {
+  text-decoration: underline;
+}
+
+.topic {
+  position: relative;
+  float: left;
+  margin-right: 4px;
+  margin-left: 4px;
+  padding: 4px;
+  background: white;
+  display: block;
+}
+
+.translation-tag {
+  font-style: bold;
+  width: 40px;
+}
+
+.number {
+  width: 18px;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  float: left;
+  left: -5px;
+}
+
+/* match game */
+#match-container {
+  background: white;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  top: 125px;
+}
+
+.match-list {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.match-list li {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+/* mobile layout */
+#nav-list-container-bottom {
+  position: fixed;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  bottom: 0px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.nav-list-btm {
+  background: white;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  z-index: 100;
+  width: 100%;
+}
+
+.nav-list-li-btm {
+  display: inline-block;
+  list-style-type: none;
+  padding: 6px 0px 0px 6px;
+}
+
+.navigation-link {
+
+}
