@@ -1,3 +1,4 @@
+/* backup.css */
 /* japanese */
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -188,7 +189,6 @@ body {
   margin-top: 35px;
   margin-bottom: 20px;
   border-radius: 6px;
-  top: 10px;
 }
 
 .example-title {
@@ -315,52 +315,39 @@ body {
   transition: 1s ease;
   overflow-y: scroll;
   position: fixed;
-  width: 30px;
-  bottom: 37px;
+  width: 100%;
+  bottom: 38px;
   display: block;
   margin: 0 auto;
   border: 1px solid #6CC088;
   border-radius: 4px;
-  opacity: 0;
 }
 
-#added-count {
-  padding: 4px;
-  left: 15px;
+#top-row li {
+  list-style-type: none;
+  display: inline-block;
 }
 
 #addball {
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  background: green;
   box-shadow: 0px 0px 4px 0px;
-  border: 1px solid #6CC088;
+  border: 1px solid green;
   transition: 0.5s;
-  float: right;
-  top: 5px;
-  left: -10px;
-  color: #6CC088;
 }
 
-#addball:hover {
-  color: white;
-  background: #6CC088;
-}
-
-.ib-top-contents {
-  position: relative;
-  display: inline-block;
-}
-
-#ib-selection {
-  text-align: center;
-}
-
-.collected-content {
-  width: 30%;
-  position: relative;
-  display: inline-block;
-  margin-bottom: 0px;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* middle content general */
@@ -371,7 +358,7 @@ body {
   overflow-y: scroll;
   float: left;
   overflow-x: hidden;
-  margin-bottom: 30px;
+
 }
 
 #table-content {
@@ -420,7 +407,6 @@ body {
   display: block;
   position: relative;
   margin: 0 auto;
-  margin-bottom: 10px;
 }
 
 .controls-container button {

@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
   <title>Niheigo</title>
   <link href="css/camstrap.css" type="text/css" rel="stylesheet">
   <link href="css/mobile.css" type="text/css" rel="stylesheet">
@@ -9,14 +10,17 @@
 <body>
   <h2 id="niheigo">Niheigo</h2>
 
+  <div id="home-page-content">
+    <div id="canvas-here"></div>
+  </div>
+
+
   <div id="patterns-content" class="topic-container">
     <h3 class="section-title">Romaji, Hiragana & Katakana</h3><br>
     <div class="controls-container">
       <button onclick="collectToTest()" id="collect-btn">Collect to test</button>
-      <button onclick="finishCollecting()" id="finish-collect-btn">Finish collecting</button>
       <button onclick="assignSound()" id="hear-sound-btn">Assign sounds</button>
     </div>
-    <div>Added: <span id="collected-amount" data-collection="0">0</span></div>
 
     <div id="rhk-table-wrapper">
       <div id="rhk-table">
@@ -54,32 +58,32 @@
             </div>
           </div>
           <div class="row">
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ka</div>
               <div class="box-hiragana small">か</div>
               <div class="box-katakana small">カ</div>
               <audio class="japanese-audio" id="か音"><source src="phonetics/か.mp3" type="audio/mpeg"></audio>
 
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ki</div>
               <div class="box-hiragana small">き</div>
               <div class="box-katakana small">キ</div>
               <audio class="japanese-audio" id="き音"><source src="phonetics/き.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ku</div>
               <div class="box-hiragana small">く</div>
               <div class="box-katakana small">ク</div>
               <audio class="japanese-audio" id="く音"><source src="phonetics/く.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ke</div>
               <div class="box-hiragana small">け</div>
               <div class="box-katakana small">ケ</div>
               <audio class="japanese-audio" id="け音"><source src="phonetics/け.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ko</div>
               <div class="box-hiragana small">こ</div>
               <div class="box-katakana small">コ</div>
@@ -87,7 +91,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">sa</div>
               <div class="box-hiragana small">さ</div>
               <div class="box-katakana small">サ</div>
@@ -99,19 +103,19 @@
               <div class="box-katakana small">シ</div>
               <audio class="japanese-audio" id="し音"><source src="phonetics/し.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">su</div>
               <div class="box-hiragana small">す</div>
               <div class="box-katakana small">ス</div>
               <audio class="japanese-audio" id="す音"><source src="phonetics/す.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">se</div>
               <div class="box-hiragana small">せ</div>
               <div class="box-katakana small">セ</div>
               <audio class="japanese-audio" id="せ音"><source src="phonetics/せ.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">so</div>
               <div class="box-hiragana small">そ</div>
               <div class="box-katakana small">ソ</div>
@@ -119,31 +123,31 @@
             </div>
           </div>
           <div class="row">
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ta</div>
               <div class="box-hiragana small">た</div>
               <div class="box-katakana small">タ</div>
               <audio class="japanese-audio" id="た音"><source src="phonetics/た.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">chi</div>
               <div class="box-hiragana small">ち</div>
               <div class="box-katakana small">チ</div>
               <audio class="japanese-audio" id="ち音"><source src="phonetics/ち.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">tsu</div>
               <div class="box-hiragana small">つ</div>
               <div class="box-katakana small">ツ</div>
               <audio class="japanese-audio" id="つ音"><source src="phonetics/つ.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">te</div>
               <div class="box-hiragana small">て</div>
               <div class="box-katakana small">テ</div>
               <audio class="japanese-audio" id="て音"><source src="phonetics/て.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">to</div>
               <div class="box-hiragana small">と</div>
               <div class="box-katakana small">ト</div>
@@ -151,31 +155,31 @@
             </div>
           </div>
           <div class="row">
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">na</div>
               <div class="box-hiragana small">な</div>
               <div class="box-katakana small">ナ</div>
               <audio class="japanese-audio" id="な音"><source src="phonetics/な.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ni</div>
               <div class="box-hiragana small">に</div>
               <div class="box-katakana small">ニ</div>
               <audio class="japanese-audio" id="に音"><source src="phonetics/に.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">nu</div>
               <div class="box-hiragana small">ぬ</div>
               <div class="box-katakana small">ヌ</div>
               <audio class="japanese-audio" id="ぬ音"><source src="phonetics/ぬ.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ne</div>
               <div class="box-hiragana small">ね</div>
               <div class="box-katakana small">ネ</div>
               <audio class="japanese-audio" id="ね音"><source src="phonetics/ね.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">no</div>
               <div class="box-hiragana small">の</div>
               <div class="box-katakana small">ノ</div>
@@ -183,31 +187,31 @@
             </div>
           </div>
           <div class="row">
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ha</div>
               <div class="box-hiragana small">は</div>
               <div class="box-katakana small">ハ</div>
               <audio class="japanese-audio" id="は音"><source src="phonetics/は.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">hi</div>
               <div class="box-hiragana small">ひ</div>
               <div class="box-katakana small">ヒ</div>
               <audio class="japanese-audio" id="ひ音"><source src="phonetics/ひ.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">fu</div>
               <div class="box-hiragana small">ふ</div>
               <div class="box-katakana small">フ</div>
               <audio class="japanese-audio" id="ふ音"><source src="phonetics/ふ.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">he</div>
               <div class="box-hiragana small">へ</div>
               <div class="box-katakana small">ヘ</div>
               <audio class="japanese-audio" id="へ音"><source src="phonetics/へ.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ho</div>
               <div class="box-hiragana small">ほ</div>
               <div class="box-katakana small">ホ</div>
@@ -215,31 +219,31 @@
             </div>
           </div>
           <div class="row">
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ma</div>
               <div class="box-hiragana small">ま</div>
               <div class="box-katakana small">マ</div>
               <audio class="japanese-audio" id="ま音"><source src="phonetics/ま.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">mi</div>
               <div class="box-hiragana small">み</div>
               <div class="box-katakana small">ミ</div>
               <audio class="japanese-audio" id="み音"><source src="phonetics/み.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">mu</div>
               <div class="box-hiragana small">む</div>
               <div class="box-katakana small">ム</div>
               <audio class="japanese-audio" id="む音"><source src="phonetics/む.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">me</div>
               <div class="box-hiragana small">め</div>
               <div class="box-katakana small">メ</div>
               <audio class="japanese-audio" id="め音"><source src="phonetics/め.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">mo</div>
               <div class="box-hiragana small">も</div>
               <div class="box-katakana small">モ</div>
@@ -247,7 +251,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ya</div>
               <div class="box-hiragana small">や</div>
               <div class="box-katakana small">ヤ</div>
@@ -258,7 +262,7 @@
               <div class="box-hiragana small"></div>
               <div class="box-katakana small"></div>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">yu</div>
               <div class="box-hiragana small">ゆ</div>
               <div class="box-katakana small">ユ</div>
@@ -269,7 +273,7 @@
               <div class="box-hiragana small"></div>
               <div class="box-katakana small"></div>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">yo</div>
               <div class="box-hiragana small">よ</div>
               <div class="box-katakana small">ヨ</div>
@@ -277,31 +281,31 @@
             </div>
           </div>
           <div class="row">
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ra</div>
               <div class="box-hiragana small">ら</div>
               <div class="box-katakana small">ラ</div>
               <audio class="japanese-audio" id="ら音"><source src="phonetics/ら.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ri</div>
               <div class="box-hiragana small">り</div>
               <div class="box-katakana small">リ</div>
               <audio class="japanese-audio" id="り音"><source src="phonetics/り.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ru</div>
               <div class="box-hiragana small">る</div>
               <div class="box-katakana small">ル</div>
               <audio class="japanese-audio" id="る音"><source src="phonetics/る.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">re</div>
               <div class="box-hiragana small">れ</div>
               <div class="box-katakana small">レ</div>
               <audio class="japanese-audio" id="れ音"><source src="phonetics/れ.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">ro</div>
               <div class="box-hiragana small">ろ</div>
               <div class="box-katakana small">ロ</div>
@@ -309,7 +313,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">wa</div>
               <div class="box-hiragana small">わ</div>
               <div class="box-katakana small">ワ</div>
@@ -330,7 +334,7 @@
               <div class="box-hiragana small"></div>
               <div class="box-katakana small"></div>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">wo</div>
               <div class="box-hiragana small">を</div>
               <div class="box-katakana small">ヲ</div>
@@ -358,7 +362,7 @@
               <div class="box-hiragana small"></div>
               <div class="box-katakana small"></div>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">n</div>
               <div class="box-hiragana small">ん</div>
               <div class="box-katakana small">ン</div>
@@ -607,9 +611,9 @@
 
   <div id="nav-list-container-bottom">
     <div id="interact-box">
-      <ul id="top-row">
-        <li><div id="addball" onclick="toggleIB()"></div></li>
-      </ul>
+      <div id="added-count" class="ib-top-contents">Added: <span id="collected-amount" data-collection="0">0</span></div>
+      <div id="addball" class="ib-top-contents" onclick="toggleIB()">^</div><br>
+      <p>Collected content:</p>
       <div id="ib-selection"></div>
     </div>
     <ul class="nav-list-btm">
@@ -631,7 +635,13 @@
     with association learning -->
 
 
+  <script src="js/p5/p5.min.js" type="text/javascript"></script>
+  <script src="js/p5/p5.dom.js" type="text/javascript"></script>
+  <!--<script src="js/p5/sketch.js" type="text/javascript"></script>-->
   <script src="js/japanese.js" type="text/javascript"></script>
   <script src="js/phrases.js" type="text/javascript"></script>
+
+  <!--<script src="p5.sound.js" type="text/javascript"></script>-->
+
 </body>
 </html>

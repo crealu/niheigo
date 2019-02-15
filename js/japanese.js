@@ -274,8 +274,14 @@ function collectToTest() {
   for (let i = 0; i < tableBoxes.length; i++) {
     tableBoxes[i].addEventListener('click', collect);
   }
-  //let collectedHere = document.getElementById('collected-amount');
-  //collectedHere.dataset.collection = 0;
+  let topicContents = document.getElementsByClassName('topic-contents');
+  for (let j = 0; j < topicContents.length; j++) {
+    topicContents[j].style.marginBottom = '60px';
+  }
+  let ib = document.getElementById('interact-box');
+  ib.style.height = '30px';
+  ib.style.opacity = '1';
+  ib.style.width = 'inherit';
   on = 1;
 }
 
@@ -308,30 +314,26 @@ function collect() {
   let collectedHere = document.getElementById('collected-amount');
   let romaji, hiragana, katakana;
   let ib = document.getElementById('interact-box');
-  ib.style.height = '40px';
 
   if (on == 1) {
-    collectedHere.dataset.collection++;
-    collectedHere.innerHTML = collectedHere.dataset.collection;
     romaji = this.firstChild.nextSibling.innerText;
     hiragana = this.childNodes[2].nextSibling.innerText;
     katakana = this.childNodes[4].nextSibling.innerText;
   }
 
   let tripletArray = [romaji, hiragana, katakana];
-
-  this.style.background = 'white';
-  collectedArray.push(tripletArray);
-
-  //console.log(collectedArray);
-  added();
-  addToIB();
-  //let newTB = tb.firstChild.text;
-}
-
-function added() {
-  let ab = document.getElementById('addball');
-  ab.style.animation = 'pulse 1.5s ease 0s';
+  let dataCollected = this.dataset.collect;
+  if (dataCollected == 0) {
+    collectedArray.push(tripletArray);
+    addToIB();
+    this.style.background = 'white';
+    collectedHere.dataset.collection++;
+    collectedHere.innerHTML = collectedHere.dataset.collection;
+    this.dataset.collect = 1;
+    console.log(collectedArray);
+  } else {
+      this.style.transform = 'rotate(360deg)';
+  }
 }
 
 function addToIB() {
@@ -343,15 +345,8 @@ function addToIB() {
     let k = collectedArray[i][2];
     let tripletText = document.createTextNode(r + ', ' + h + ', ' + k);
 
-    let rEl = document.createElement("div");
-    let hEl = document.createElement("div");
-    let kEl = document.createElement("div");
-
-    rEl.classList.add('selected-triplet');
-    hEl.classList.add('selected-triplet');
-    kEl.classList.add('selected-triplet');
-
     let pEl = document.createElement("p");
+    pEl.classList.add('collected-content')
     pEl.appendChild(tripletText);
     ibs.appendChild(pEl);
   }
