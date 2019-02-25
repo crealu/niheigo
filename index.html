@@ -9,19 +9,16 @@
 </head>
 <body>
   <h2 id="niheigo">Niheigo</h2>
-
   <div id="home-page-content">
     <div id="canvas-here"></div>
   </div>
-
-
   <div id="patterns-content" class="topic-container">
     <h3 class="section-title">Romaji, Hiragana & Katakana</h3><br>
     <div class="controls-container">
       <button onclick="collectToTest()" id="collect-btn">Collect to test</button>
       <button onclick="assignSound()" id="hear-sound-btn">Assign sounds</button>
+      <button onclick="randomizeArray()">Randomize</button>
     </div>
-
     <div id="rhk-table-wrapper">
       <div id="rhk-table">
         <div class="row-container">
@@ -97,7 +94,7 @@
               <div class="box-katakana small">サ</div>
               <audio class="japanese-audio" id="さ音"><source src="phonetics/さ.mp3" type="audio/mpeg"></audio>
             </div>
-            <div class="table-box">
+            <div class="table-box" data-collect="0">
               <div class="box-romaji big">shi</div>
               <div class="box-hiragana small">し</div>
               <div class="box-katakana small">シ</div>
@@ -421,7 +418,7 @@
   </div>
 
   <div id="sentences-content" class="topic-container">
-    <h3 class="section-title">Sentence Structure</h3><br>
+    <h3 class="section-title">文法 (Grammar)</h3><br>
     <p class="sentence-text">Standard Japanese sentences follow a certain order.</p>
     <div class="sentence-structure">
       <div class="topic order-item">
@@ -523,7 +520,7 @@
           </div>
           <div class="topic order-item">
             <div class="number order-pair">5</div>
-            <p class="topic-text order-pair si-r">orenji o</p>
+            <p class="topic-text order-pair si-r">orenji wo</p>
           </div>
           <div class="topic order-item">
             <div class="number order-pair">6</div>
@@ -554,59 +551,16 @@
   </div>
 
   <div id="match-content" class="topic-container">
-    <h3 class="section-title">Translation Match</h3>
-    <ul id="nihongo-list" class="match-list">
-      <li>A. sumimasen</li>
-      <li>B. sore wa doko desu ka</li>
-      <li>C. kore wa nan desu ka</li>
-      <li>D. sore wa nan desu ka</li>
-    </ul>
-    <ul id="ego-list" class="match-list">
-      <li>
-        <p class="option">where is that</p>
-        <ul class="answer-options">
-          <li>
-            <input id="ansA" type="radio"><label for="ansA">A</label>
-            <input id="ansB" type="radio"><label for="ansB">B</label>
-            <input id="ansC" type="radio"><label for="ansC">C</label>
-            <input id="ansD" type="radio"><label for="ansD">D</label>
-          </li>
-        </ul>
-      </li>
-      <li class="option">
-        <p>what is this</p>
-        <ul class="answer-options">
-          <li>
-            <input id="ansA" type="radio"><label for="ansA">A</label>
-            <input id="ansB" type="radio"><label for="ansB">B</label>
-            <input id="ansC" type="radio"><label for="ansC">C</label>
-            <input id="ansD" type="radio"><label for="ansD">D</label>
-          </li>
-        </ul>
-      </li>
-      <li class="option">
-        </p>excuse me</p>
-        <ul class="answer-options">
-          <li>
-            <input id="ansA" type="radio"><label for="ansA">A</label>
-            <input id="ansB" type="radio"><label for="ansB">B</label>
-            <input id="ansC" type="radio"><label for="ansC">C</label>
-            <input id="ansD" type="radio"><label for="ansD">D</label>
-          </li>
-        </ul>
-      </li>
-      <li class="option">
-        <p>what is this</p>
-        <ul class="answer-options">
-          <li>
-            <input id="ansA" type="radio"><label for="ansA">A</label>
-            <input id="ansB" type="radio"><label for="ansB">B</label>
-            <input id="ansC" type="radio"><label for="ansC">C</label>
-            <input id="ansD" type="radio"><label for="ansD">D</label>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <h3 class="section-title">単語 (Vocab)</h3>
+
+    <input id="verb-inp" placeholder="verb">
+    <div class="button-container">
+      <button class="verb-btn" onclick="showCC()">Show CC</button>
+      <button class="verb-btn" onclick="showVerbs()">Show verbs</button>
+    </div>
+    <p id="kanji-here"></p>
+    <p id="eigo-here"></p>
+    <p id="all-verbs-here"></p>
   </div>
 
   <div id="nav-list-container-bottom">
@@ -614,17 +568,31 @@
       <div id="added-count" class="ib-top-contents">Added: <span id="collected-amount" data-collection="0">0</span></div>
       <div id="addball" class="ib-top-contents" onclick="toggleIB()">^</div><br>
       <p>Collected content:</p>
-      <div id="ib-selection"></div>
+      <div id="ib-selection"></div><br>
+      <div class="button-container">
+        <button onclick="testMatch()">Match Hiragana & Katakana</button><br>
+        <!--<button onclick="testMatch('h')">Match Hiragana</button>
+        <button onclick="testMatch('k')">Match Katakana</button>-->
+        <button onclick="caro('prev')"><</button>
+        <button onclick="caro('next')">></button>
+      </div>
+      <div id="caro-slide" data-slidenum="0"></div>
+
+      <div id="gets-test"></div>
+      <div id="gets-choice"></div>
+      <div id="gets-check">
+        <button id="check-btn" onclick="checkTest()">Check answers</button>
+      </div>
     </div>
     <ul class="nav-list-btm">
       <li class="nav-list-li-btm"  onclick="navigate('patterns')">
-        <a class="navigation-link">T/P</a>
+        <a class="navigation-link">あいう</a>
       </li>
       <li class="nav-list-li-btm"  onclick="navigate('sentences')">
-        <a class="navigation-link">S</a>
+        <a class="navigation-link">文法</a>
       </li>
       <li class="nav-list-li-btm"  onclick="navigate('match')">
-        <a class="navigation-link">M</a>
+        <a class="navigation-link">単語</a>
       </li>
     </ul>
   </div>
@@ -640,6 +608,8 @@
   <!--<script src="js/p5/sketch.js" type="text/javascript"></script>-->
   <script src="js/japanese.js" type="text/javascript"></script>
   <script src="js/phrases.js" type="text/javascript"></script>
+  <script src="js/verbs.js" type="text/javascript"></script>
+
 
   <!--<script src="p5.sound.js" type="text/javascript"></script>-->
 

@@ -1,25 +1,88 @@
 let phrases = [
   {
     e: 'I eat oranges',
-    er: 'I oranges eat',
-    r: 'Watashi wa orengi o taberu',
-    cc: '私は　オレンジを　たべる'
+    er: {
+      subject: 'I',
+      time: '',
+      companion: '',
+      place: '',
+      object: 'oranges',
+      verb: 'eat'
+    },
+    r: {
+      topic: 'Watashi wa',
+      time: '',
+      companion: '',
+      place: '',
+      object: 'orengi wo',
+      verb: 'taberu'
+    },
+    cc: {
+      topic: '私は',
+      time: '',
+      companion: '',
+      place: '',
+      object: 'オレンジを',
+      verb: 'たべる'
+    }
   },
   {
     e: 'I teach english',
-    er: 'I english teach',
-    r: 'Watashi wa ego o oshiemasu',
-    cc: '私は　エゴを　おしえます'
+    er: {
+      subject: 'I',
+      time: '',
+      companion: '',
+      place: '',
+      object: 'english',
+      verb: 'teach'
+    },
+    r: {
+      topic: 'Watashi wa',
+      time: '',
+      companion: '',
+      place: '',
+      object: 'eigo wo',
+      verb: 'oshieru'
+    },
+    cc: {
+      topic: '私は',
+      time: '',
+      companion: '',
+      place: '',
+      object: 'えいごを',
+      verb: 'おしえる'
+    }
   },
   {
     e: 'I live in Shinkamagaya',
-    er: 'I in Shinkamagaya live',
-    r: 'Watashi wa Shinkamagaya de sunde imasu',
-    cc: '私は　新鎌ケ谷で　住んでいます'
+    er: {
+      subject: 'I',
+      time: '',
+      companion: '',
+      place: 'in Shinkamagaya',
+      object: 'english',
+      verb: 'teach'
+    },
+    r: {
+      topic: 'Watashi wa',
+      time: '',
+      companion: '',
+      place: 'Shinkamagaya de',
+      object: '',
+      verb: 'sunde imasu'
+    },
+    cc: {
+      topic: '私は',
+      time: '',
+      companion: '',
+      place: '新鎌ケ谷で',
+      object: '',
+      verb: '住んでいます'
+    }
   }
 ];
 
-let sentences = [
+let longSentences = [
   {
     e: 'I ate lunch with my friend at a restaurant on Sunday',
     er: {
@@ -62,7 +125,7 @@ let sentences = [
       time: '',
       companion: 'kazoku to',
       place: 'uchi de',
-      object: 'nihongo o',
+      object: 'nihongo wo',
       verb: 'hanashimasu'
     },
     cc: {
@@ -89,7 +152,7 @@ let sentences = [
       time: 'haha no tanjoubi ni',
       companion: '',
       place: 'eki no chikaku de',
-      object: 'kireina bara o',
+      object: 'kireina bara wo',
       verb: 'kaimashita'
     },
     cc: {
@@ -116,7 +179,7 @@ let sentences = [
       time: 'yoru ni',
       companion: '',
       place: '',
-      object: 'koohii o',
+      object: 'koohii wo',
       verb: 'nomimasen'
     },
     cc: {
@@ -143,7 +206,7 @@ let sentences = [
       time: 'haru ni',
       companion: '',
       place: 'kyouto de',
-      object: 'sakura o',
+      object: 'sakura wo',
       verb: 'mitai desu'
     },
     cc: {
@@ -185,7 +248,7 @@ let sentences = [
 ];
 
 function newSentence() {
-  let choice = sentences.length;
+  let choice = longSentences.length;
   let rand = Math.floor(Math.random() * (choice - 1) + 1);
 
   let siE = document.getElementsByClassName('si-e');
@@ -196,9 +259,7 @@ function newSentence() {
   clearDiv(siE[0]);
 
   clearDiv(siER)
-  siE.innerHTML = sentences[rand].e;
-
-
+  siE[0].innerHTML = longSentences[rand].e;
 
 }
 
@@ -208,24 +269,6 @@ let phrasesToCheck = [
     er: '',
     r: 'Motto kuwashiku shiru',
     cc: 'もっと詳しく知る'
-  },
-  {
-    e: 'To teach',
-    er: '',
-    r: 'oshieru tame ni',
-    cc: '教えるために'
-  },
-  {
-    e: 'To learn',
-    er: '',
-    r: 'manabu tame ni',
-    cc: '学ぶために'
-  },
-  {
-    e: 'I live in',
-    er: '',
-    r: 'watashi wa sunde imasu',
-    cc: '私は住んでいます'
   },
   {
     e: 'Slowly please',
@@ -257,11 +300,96 @@ let phrasesToCheck = [
     r: 'ginko kozawokaisetsu shitai',
     cc: 'ギンココザヲカイセツシタイ'
   },
+  // from 2019/02/22
   {
-    e: 'I ate lunch with my friend at a restaurant on Sunday',
+    e: 'Can you write it down',
     er: '',
-    r: '',
-    cc: ''
+    r: 'sore wo kakitomemasu ka',
+    cc: 'それをかきとめますか'
+  },
+  {
+    e: 'Is there a phone store nearby',
+    er: '',
+    r: 'chikaku ni denwa-ten wa arimasu ka',
+    cc: '近くに電話店はありますか'
+  },
+  {
+    e: 'Where is the exit',
+    er: '',
+    r: 'deguchi wa dokodesu ka',
+    cc: '出口はどこですか'
+  },
+  {
+    e: 'what is this (item) in Japanese',
+    er: '',
+    r: 'kore wa Nihon-go de nan desu ka',
+    cc: 'これは日本ごでなんですか'
+  },
+  {
+    e: 'In Japanese, that is a "telephone"',
+    er: '',
+    r: 'Nihon-go de sore wa "denwa" desu',
+    cc: '日本ごでそれは”電話”です'
+  },
+  {
+    e: 'I like your hat',
+    er: '',
+    r: 'watashi wa anata no boshi ga sukidesu',
+    cc: '私はあなたの帽子が好きです'
+  },
+  {
+    e: 'Welcome back',
+    er: '',
+    r: 'okansonasai',
+    cc: 'おかんソなさい'
+  },
+  {
+    e: 'I need to practice',
+    er: '',
+    r: 'renshu ga hitsuyodesu',
+    cc: '練習が必要です'
+  },
+  {
+    e: 'What do you want to do',
+    er: '',
+    r: 'nani wo shitaidesu ka',
+    cc: '何をしたいですか'
+  },
+  {
+    e: 'How often do you come here',
+    er: '',
+    r: 'dono kurai no hindo de koko ni kimasu ka',
+    cc: 'どのくらいの頻度でここに来ますか'
+  },
+  {
+    e: 'I will be back another day',
+    er: '',
+    r: 'mata modotte kimasu',
+    cc: 'また戻ってきます'
+  },
+  {
+    e: 'When do you close',
+    er: '',
+    r: 'itsu shimarimasu ka',
+    cc: 'いつ閉まりますか'
+  },
+  {
+    e: 'I have this',
+    er: '',
+    r: 'watashi wa kore wo motte imasu',
+    cc: '私はこれを盛っています'
+  },
+  {
+    e: 'I can\'t stay',
+    er: '',
+    r: 'watashi wa taizaid dekinai',
+    cc: '私は滞在できない'
+  },
+  {
+    e: 'I am happy',
+    er: '',
+    r: 'ureshidesu',
+    cc: '嬉しいです'
   }
 ];
 
@@ -315,6 +443,69 @@ function toggleJE() {
       jeToggle.dataset.language = 0;
   }
 }
+
+let kanji = {
+  sun: ['taiyo', '太陽'],
+  one: ['ichi', '一',],
+  big: ['oki', 'オキ'],
+  year: ['toshi', '年'],
+  middle: ['chukan', ''],
+  toMeet: ['au tame ni', '会'],
+  people: ['hito', '人'],
+  book: ['hon', '本'],
+  moon: ['tsuki', '月'],
+  month: ['tsuki', '月'],
+  long: ['nagaidesu', '長'],
+  country: ['kuni', ''],
+  toGoOut: ['gaishutsu suru', ''],
+  top: ['appu', ''],
+  ten: ['ju', '十'],
+  life: ['seikatsu', '生活'],
+  child: ['ko', '子'],
+  minute: ['bun', '分'],
+  east: ['azuma', '東'],
+  three: ['san', '三'],
+  toGo: ['iku', '行'],
+  same: ['onaji', '同'],
+  now: ['ima', ''],
+  expensive: ['takai', '高'],
+  money: ['okane', '金'],
+  time: ['jikan', '時'],
+  hand: ['hando', ''],
+  toSee: ['miru', '見'],
+  city: ['shiti', '市'],
+  power: ['pawa', ''],
+  rice: ['gohan', ''],
+  oneself: ['jibun', '自'],
+  before: ['mae', ''],
+  sound: ['oto', '音']
+};
+
+let myKanji = {
+  sound: ['oto', '音'],
+  music: ['ongaku', '音楽']
+};
+
+let センテン = [
+  {
+    e: 'I eat oranges',
+    er: 'I oranges eat',
+    r: 'Watashi wa orengi o taberu',
+    cc: '私は　オレンジを　たべる'
+  },
+  {
+    e: 'I teach english',
+    er: 'I english teach',
+    r: 'Watashi wa ego o oshiemasu',
+    cc: '私は　エゴを　おしえます'
+  },
+  {
+    e: 'I live in Shinkamagaya',
+    er: 'I in Shinkamagaya live',
+    r: 'Watashi wa Shinkamagaya de sunde imasu',
+    cc: '私は　新鎌ケ谷で　住んでいます'
+  }
+];
 
 function selectPhrase() {
   console.log(this.firstChild);

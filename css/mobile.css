@@ -376,6 +376,7 @@ body {
 
 #table-content {
   display: none;
+  margin-bottom: 50px;
 }
 
 #sentences-content {
@@ -389,6 +390,7 @@ body {
 
 #match-content {
   display: none;
+  width: 100%;
 }
 
 #rhk-table {
@@ -465,4 +467,133 @@ body {
 .box-none {
   background: white;
   border: 1px solid white;
+}
+
+/* match test */
+#gets-test {
+  transition: 0.5s;
+  margin-bottom: 20px;
+  height: auto;
+}
+
+#test-title {
+  transition: 0.5s;
+}
+
+.match-list-test {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  padding: 6px;
+  transition: 0.5s;
+}
+
+.match-list-test li {
+  list-style-type: none;
+  display: inline-block;
+  padding-left: 6px;
+  padding-right: 6px;
+  background: rgba(108, 192, 136, 0.2);
+  border-radius: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#gets-choice {
+  margin-bottom: 20px;
+}
+
+.match-list-choice {
+  display: none;
+  margin: 0 auto;
+  position: relative;
+  padding: 6px;
+}
+
+.match-list-choice li {
+  list-style-type: none;
+  display: inline-block;
+  padding-left: 6px;
+  padding-right: 6px;
+  border: 1px solid rgba(108, 192, 136, 0.75);
+  border-radius: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.answer-options li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#the-carousel {
+  /*border: 1px solid rgba(108, 192, 136, 0.75);*/
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+.caro-slides {
+  display: inline-block;
+  transition: 0.5s;
+  position: relative;
+  font-size: 32px;
+  padding: 6px;
+}
+
+.answer-slot {
+  display: inline-block;
+  margin: 0 auto;
+  border: 1px solid rgba(108, 192, 136, 0.5);
+  border-radius: 4px;
+  position: relative;
+  font-weight: 100;
+  padding: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: rgba(108, 192, 136, 0.5);
+}
+
+.selected-slot {
+  border: 3px solid rgba(108, 192, 136, 0.5);
+}
+
+.answered-slot {
+  color: rgba(108, 192, 136, 1);
+  border: 3px solid rgba(108, 192, 136, 1);
+}
+
+#check-btn {
+  display: none;
+  margin: 0 auto;
+  position: relative;
+}
+
+#verb-inp {
+  border-radius: 4px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.verb-btn {
+  display: inline-block;
+  position: relative;
+}
+
+#kanji-here {
+  font-size: 80px;
+  text-align: center;
+  color: black;
+}
+
+#eigo-here {
+  font-size: 30px;
+  text-align: center;
+  color: black;
 }

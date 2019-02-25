@@ -4,6 +4,13 @@ function clearDiv(div) {
   }
 }
 
+function shrinkClear(div) {
+  div.style.height = '0px';
+  while(div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
+}
+
 let hiraganaArrayG = [
     ['a', 'あ', 'ア'],
     ['i','い', 'イ'],
@@ -112,9 +119,6 @@ let hiraganaArrayG = [
     ['wo', 'を', 'ヲ'],
     ['n', 'ん', 'ン']
 ];
-/*
-let あ = 'a';
-console.log(あ);*/
 
 let latinHere = document.getElementById('gets-latin');
 let characterHere = document.getElementById('gets-character');
@@ -130,48 +134,11 @@ function randomize() {
   console.log(hiraganaArrayG[random]);
 }
 
-function toggleCharacters() {
+function randomizeArray() {
 
 }
 
-function assignSound() {
-  let tableBoxes = document.getElementsByClassName('table-box');
-  console.log(tableBox.firstChild[0].text);
-}
-
-function hiraganaPair(latin, character) {
-  this.latin = latin,
-  this.character = character
-}
-/*
-let pair = new hiraganaPair('a', 'あ');
-latinHere.innerHTML = pair.latin;
-characterHere.innerHTML = pair.character;
-*/
-// start game
-function startMatch() {
-  let ego = [
-    'excuse me',
-    'where is that',
-    'what is this',
-    'what is that'
-  ];
-
-  let romaji = [
-    'sumimasen',
-    'sore wa doko desu ka',
-    'kore wa nan desu ka',
-    'sore wa nan desu ka'
-  ];
-
-  let nihongo = [
-    'すみません',
-    'それはどこですか',
-    'これはなんですか',
-    'それはなんですか'
-  ];
-}
-
+// naviagtion
 function displayProject(div) {
   let topicContents = document.getElementsByClassName('topic-container');
   for (let i = 0; i < topicContents.length; i++) {
@@ -201,74 +168,11 @@ function navigate(navtab) {
   }
 }
 
-let センテン = [
-  {
-    e: 'I eat oranges',
-    er: 'I oranges eat',
-    r: 'Watashi wa orengi o taberu',
-    cc: '私は　オレンジを　たべる'
-  },
-  {
-    e: 'I teach english',
-    er: 'I english teach',
-    r: 'Watashi wa ego o oshiemasu',
-    cc: '私は　エゴを　おしえます'
-  },
-  {
-    e: 'I live in Shinkamagaya',
-    er: 'I in Shinkamagaya live',
-    r: 'Watashi wa Shinkamagaya de sunde imasu',
-    cc: '私は　新鎌ケ谷で　住んでいます'
-  }
-];
-
-let kanji = {
-  sun: ['taiyo', '太陽'],
-  one: ['ichi', '一',],
-  big: ['oki', 'オキ'],
-  year: ['toshi', '年'],
-  middle: ['chukan', ''],
-  toMeet: ['au tame ni', '会'],
-  people: ['hito', '人'],
-  book: ['hon', '本'],
-  moon: ['tsuki', '月'],
-  month: ['tsuki', '月'],
-  long: ['nagaidesu', '長'],
-  country: ['kuni', ''],
-  toGoOut: ['gaishutsu suru', ''],
-  top: ['appu', ''],
-  ten: ['ju', '十'],
-  life: ['seikatsu', '生活'],
-  child: ['ko', '子'],
-  minute: ['bun', '分'],
-  east: ['azuma', '東'],
-  three: ['san', '三'],
-  toGo: ['iku', '行'],
-  same: ['onaji', '同'],
-  now: ['ima', ''],
-  expensive: ['takai', '高'],
-  money: ['okane', '金'],
-  time: ['jikan', '時'],
-  hand: ['hando', ''],
-  toSee: ['miru', '見'],
-  city: ['shiti', '市'],
-  power: ['pawa', ''],
-  rice: ['gohan', ''],
-  oneself: ['jibun', '自'],
-  before: ['mae', ''],
-  sound: ['oto', '音']
-};
-
-let myKanji = {
-  sound: ['oto', '音'],
-  music: ['ongaku', '音楽']
-};
-
-
 let on = 0;
+let preRandomized = [];
 let collectedArray = [];
 
-// event listener functions
+// collect content
 function collectToTest() {
   let tableBoxes = document.getElementsByClassName('table-box');
   for (let i = 0; i < tableBoxes.length; i++) {
@@ -284,7 +188,7 @@ function collectToTest() {
   ib.style.width = 'inherit';
   on = 1;
 }
-
+/*
 function finishCollecting() {
   let selection = document.getElementById('gets-selection');
 
@@ -309,6 +213,7 @@ function finishCollecting() {
   collectedArray = [];
   on = 0;
 }
+*/
 
 function collect() {
   let collectedHere = document.getElementById('collected-amount');
@@ -324,25 +229,39 @@ function collect() {
   let tripletArray = [romaji, hiragana, katakana];
   let dataCollected = this.dataset.collect;
   if (dataCollected == 0) {
-    collectedArray.push(tripletArray);
+    preRandomized.push(tripletArray);
+    //collectedArray.push(tripletArray);
     addToIB();
     this.style.background = 'white';
     collectedHere.dataset.collection++;
     collectedHere.innerHTML = collectedHere.dataset.collection;
     this.dataset.collect = 1;
-    console.log(collectedArray);
+    //console.log(collectedArray);
+    console.log(preRandomized);
   } else {
-      this.style.transform = 'rotate(360deg)';
+      this.style.border = '1px solid gray';
   }
+}
+
+function randomizeArray() {
+  let preRandomLength = preRandomized.length;
+  let r;
+  while (preRandomLength > 0) {
+    r = Math.floor(Math.random() * (preRandomLength - 1));
+    let spliced = preRandomized.splice(r, 1);
+    collectedArray.push(spliced[0]);
+    preRandomLength = preRandomized.length;
+  }
+  console.log(collectedArray);
 }
 
 function addToIB() {
   let ibs = document.getElementById('ib-selection');
   clearDiv(ibs);
-  for (let i = 0; i < collectedArray.length; i++) {
-    let r = collectedArray[i][0];
-    let h = collectedArray[i][1];
-    let k = collectedArray[i][2];
+  for (let i = 0; i < preRandomized.length; i++) {
+    let r = preRandomized[i][0];
+    let h = preRandomized[i][1];
+    let k = preRandomized[i][2];
     let tripletText = document.createTextNode(r + ', ' + h + ', ' + k);
 
     let pEl = document.createElement("p");
@@ -402,4 +321,188 @@ function unColorSound(clicked) {
   clicked.childNodes[1].style.color = '#686868';
   clicked.childNodes[3].style.color = '#686868';
   clicked.childNodes[5].style.color = '#686868';
+}
+
+// matching
+function testMatch(test) {
+  let ibs = document.getElementById('ib-selection');
+  let testHere = document.getElementById('gets-test');
+  let choiceHere = document.getElementById('gets-choice');
+  clearDiv(ibs);
+  clearDiv(testHere);
+  clearDiv(choiceHere);
+  randomizeArray();
+
+  let titleHere = document.createElement("h3");
+  let titleText = 'Match each romaji to its katakana and hiragana pair';
+  let title = document.createTextNode(titleText);
+  titleHere.appendChild(title);
+  titleHere.setAttribute('id', 'test-title');
+
+  let testUL = document.createElement("ul");
+  let choiceUL = document.createElement("ul");
+
+  testUL.classList.add('match-list-test');
+  choiceUL.classList.add('match-list-choice');
+
+  for (let i = 0; i < collectedArray.length; i++) {
+    let testLI = document.createElement("li");
+    let romaji = collectedArray[i][0];
+    let rText = document.createTextNode(romaji);
+    testLI.appendChild(rText);
+    testUL.appendChild(testLI);
+
+    let answerInput = document.createElement("input");
+
+    let choiceLI1 = document.createElement("li");
+    let choiceLI2 = document.createElement("li");
+    let hiragana = collectedArray[i][1];
+    let katakana = collectedArray[i][2];
+    let hText = document.createTextNode(hiragana);
+    let kText = document.createTextNode(katakana);
+
+    choiceLI1.setAttribute('data-hk', hiragana);
+    choiceLI2.setAttribute('data-hk', katakana);
+    choiceLI1.addEventListener('click', hkChoice);
+    choiceLI2.addEventListener('click', hkChoice);
+    choiceLI1.appendChild(hText);
+    choiceLI2.appendChild(kText);
+    choiceUL.appendChild(choiceLI1);
+    choiceUL.appendChild(choiceLI2);
+  }
+
+  let beginButton = document.createElement("button");
+  let beginText = document.createTextNode('Begin');
+  beginButton.appendChild(beginText);
+  beginButton.addEventListener('click', beginTest);
+
+  testHere.appendChild(titleHere);
+  testHere.appendChild(testUL);
+  testHere.appendChild(beginButton);
+  choiceHere.appendChild(choiceUL);
+}
+
+function beginTest() {
+  let testHere = document.getElementById('gets-test');
+  let testList = document.getElementsByClassName('match-list-test')[0];
+  let testTitle = document.getElementById('test-title');
+  let matchChoice = document.getElementsByClassName('match-list-choice')[0];
+
+  let carousel = document.createElement("div");
+  carousel.setAttribute('id', 'the-carousel');
+
+  this.style.transition = '0.5s';
+  this.style.opacity = '0';
+  testList.style.opacity = '0';
+  testTitle.style.opacity = '0';
+  testHere.appendChild(carousel);
+
+  timedClear(testHere, carousel);
+  matchChoice.style.display = 'block';
+}
+
+function timedClear(f, c) {
+  let i = 0;
+  let id = setInterval(frame, 1000);
+  function frame() {
+    i++;
+    if (i == 1) {
+      clearInterval(id);
+      clearDiv(f);
+      fillCaro(c);
+      f.appendChild(c);
+      f.style.opacity = '1';
+    }
+  }
+}
+
+function fillCaro(caroDiv) {
+  for (let i = 0; i < collectedArray.length; i++) {
+    let slide = document.createElement("div");
+    let slideRomaji = document.createElement("p");
+    let slotH = document.createElement("div");
+    let slotK = document.createElement("div");
+
+    let r = collectedArray[i][0];
+    let rText = document.createTextNode(r);
+    let slotHText = document.createTextNode('H');
+    let slotKText = document.createTextNode('K');
+
+    slotH.appendChild(slotHText);
+    slotK.appendChild(slotKText);
+    slotH.classList.add('answer-slot');
+    slotK.classList.add('answer-slot');
+    slotH.addEventListener('click', selectHK, 'h');
+    slotK.addEventListener('click', selectHK, 'k');
+
+    slideRomaji.appendChild(rText);
+    slide.appendChild(slideRomaji);
+    slide.appendChild(slotH);
+    slide.appendChild(slotK);
+    slide.setAttribute('data-slide', 'slide' + i.toString());
+    slide.classList.add('caro-slides');
+    caroDiv.appendChild(slide);
+  }
+}
+
+function caro(direction) {
+  let slideNumHere = document.getElementById('caro-slide');
+  let testHere = document.getElementById('gets-test');
+  let checkButton = document.getElementById('check-btn');
+  let arrayLen = collectedArray.length;
+
+  if (direction == 'next' && slideNumHere.dataset.slidenum != arrayLen - 1) {
+    slideNumHere.dataset.slidenum++;
+  } else if (direction == 'prev' && slideNumHere.dataset.slidenum != 0) {
+      slideNumHere.dataset.slidenum--;
+  }
+  let slideNum = slideNumHere.dataset.slidenum;
+  slideNumHere.innerHTML = slideNum;
+
+  let caroSlides = document.getElementsByClassName('caro-slides');
+  for (let j = 0; j < caroSlides.length; j++) {
+    caroSlides[j].style.display = 'none';
+    caroSlides[slideNum].style.display = 'block';
+  }
+
+  if (slideNumHere.dataset.slidenum == arrayLen - 1) {
+    checkButton.style.display = 'block';
+  } else {
+      checkButton.style.display = 'none';
+  }
+}
+
+function selectHK(hk) {
+  this.classList.add('selected-slot');
+}
+
+function hkChoice() {
+  let selected = document.getElementsByClassName('selected-slot')[0];
+  selected.classList.add('answered-slot');
+  selected.innerHTML = this.dataset.hk;
+  selected.dataset.answer = this.dataset.hk;
+  selected.classList.remove('selected-slot');
+}
+
+function checkTest() {
+  let caroSlides = document.getElementsByClassName('caro-slides');
+  let getsCheck = document.getElementById('gets-check');
+  let completedAnswers = [];
+  for (let x = 0; x < caroSlides.length; x++) {
+    let testR = caroSlides[x].firstChild.firstChild.textContent;
+    let ansH = caroSlides[x].firstChild.nextSibling.textContent;
+    let ansK = caroSlides[x].firstChild.nextSibling.nextSibling.textContent;
+    let finishedSlide = [testR, ansH, ansK];
+    completedAnswers.push(finishedSlide);
+  }
+
+  for (let y = 0; y < collectedArray.length; y++) {
+    for (let z = 0; z < completedAnswers.length; z++) {
+      if (collectedArray[y][0] == completedAnswers[z][0] && collectedArray[y][1] == completedAnswers[z][1] && collectedArray[y][2] == completedAnswers[z][2]) {
+        console.log(y.toString() + ' is correct');
+      }
+    }
+  }
+  console.log(completedAnswers);
+  console.log(collectedArray);
 }
