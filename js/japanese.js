@@ -134,10 +134,6 @@ function randomize() {
   console.log(hiraganaArrayG[random]);
 }
 
-function randomizeArray() {
-
-}
-
 // naviagtion
 function displayProject(div) {
   let topicContents = document.getElementsByClassName('topic-container');
@@ -188,6 +184,7 @@ function collectToTest() {
   ib.style.width = 'inherit';
   on = 1;
 }
+
 /*
 function finishCollecting() {
   let selection = document.getElementById('gets-selection');
@@ -230,13 +227,11 @@ function collect() {
   let dataCollected = this.dataset.collect;
   if (dataCollected == 0) {
     preRandomized.push(tripletArray);
-    //collectedArray.push(tripletArray);
     addToIB();
     this.style.background = 'white';
     collectedHere.dataset.collection++;
     collectedHere.innerHTML = collectedHere.dataset.collection;
     this.dataset.collect = 1;
-    //console.log(collectedArray);
     console.log(preRandomized);
   } else {
       this.style.border = '1px solid gray';
@@ -273,10 +268,11 @@ function addToIB() {
 
 function toggleIB() {
   let ib = document.getElementById('interact-box');
-  if (ib.style.height == '80%') {
-    ib.style.height = '40px';
+  if (ib.style.height == '85%') {
+    ib.style.height = '30px';
   } else {
-      ib.style.height = '80%';
+      ib.style.height = '85%';
+      ib.style.marginTop = '30px';
   }
 }
 
@@ -328,11 +324,15 @@ function testMatch(test) {
   let ibs = document.getElementById('ib-selection');
   let testHere = document.getElementById('gets-test');
   let choiceHere = document.getElementById('gets-choice');
-  clearDiv(ibs);
-  clearDiv(testHere);
-  clearDiv(choiceHere);
-  randomizeArray();
+  document.getElementById('collcont-title').style.display = 'none';
+  document.getElementById('matchHK-btn').style.display = 'none';
 
+  ibs.style.opacity = '0';
+  testHere.style.display = 'none';
+  testHere.style.opacity = '0';
+  testMatchClear(ibs, testHere);
+  randomizeArray();
+/*
   let titleHere = document.createElement("h3");
   let titleText = 'Match each romaji to its katakana and hiragana pair';
   let title = document.createTextNode(titleText);
@@ -340,17 +340,17 @@ function testMatch(test) {
   titleHere.setAttribute('id', 'test-title');
 
   let testUL = document.createElement("ul");
-  let choiceUL = document.createElement("ul");
+  testUL.classList.add('match-list-test');*/
 
-  testUL.classList.add('match-list-test');
+  let choiceUL = document.createElement("ul");
   choiceUL.classList.add('match-list-choice');
 
   for (let i = 0; i < collectedArray.length; i++) {
     let testLI = document.createElement("li");
     let romaji = collectedArray[i][0];
     let rText = document.createTextNode(romaji);
-    testLI.appendChild(rText);
-    testUL.appendChild(testLI);
+    //testLI.appendChild(rText);
+    //testUL.appendChild(testLI);
 
     let answerInput = document.createElement("input");
 
@@ -371,37 +371,59 @@ function testMatch(test) {
     choiceUL.appendChild(choiceLI2);
   }
 
-  let beginButton = document.createElement("button");
+  /*let beginButton = document.createElement("button");
   let beginText = document.createTextNode('Begin');
   beginButton.appendChild(beginText);
-  beginButton.addEventListener('click', beginTest);
+  beginButton.addEventListener('click', beginTest);*/
 
-  testHere.appendChild(titleHere);
-  testHere.appendChild(testUL);
-  testHere.appendChild(beginButton);
+  //testHere.appendChild(titleHere);
+  //testHere.appendChild(testUL);
+  //testHere.appendChild(beginButton);
   choiceHere.appendChild(choiceUL);
+  beginTest();
+
+}
+
+function testMatchClear(ibs, th) {
+  let i = 0;
+  let id = setInterval(frame, 1000);
+  function frame() {
+    i++;
+    if (i == 1) {
+      clearInterval(id);
+      clearDiv(ibs);
+      th.style.display = 'block';
+      th.style.opacity = '1';
+    }
+  }
 }
 
 function beginTest() {
   let testHere = document.getElementById('gets-test');
-  let testList = document.getElementsByClassName('match-list-test')[0];
-  let testTitle = document.getElementById('test-title');
+  //let testList = document.getElementsByClassName('match-list-test')[0];
+  //let testTitle = document.getElementById('test-title');
   let matchChoice = document.getElementsByClassName('match-list-choice')[0];
 
   let carousel = document.createElement("div");
   carousel.setAttribute('id', 'the-carousel');
 
-  this.style.transition = '0.5s';
-  this.style.opacity = '0';
-  testList.style.opacity = '0';
-  testTitle.style.opacity = '0';
+  let caroCount = document.createElement("div");
+  caroCount.setAttribute('data-slidenum', '0');
+  caroCount.setAttribute('id', 'caro-slide');
+  carousel.appendChild(caroCount);
+
+  //this.style.transition = '0.5s';
+  //this.style.opacity = '0';
+  //testList.style.opacity = '0';
+  //testTitle.style.opacity = '0';
   testHere.appendChild(carousel);
 
-  timedClear(testHere, carousel);
+
+  beginTestClear(testHere, carousel);
   matchChoice.style.display = 'block';
 }
 
-function timedClear(f, c) {
+function beginTestClear(f, c) {
   let i = 0;
   let id = setInterval(frame, 1000);
   function frame() {
@@ -411,12 +433,19 @@ function timedClear(f, c) {
       clearDiv(f);
       fillCaro(c);
       f.appendChild(c);
+      caro('prev');
       f.style.opacity = '1';
     }
   }
 }
 
 function fillCaro(caroDiv) {
+  /*let prevButton = document.createElement("button");
+  let prevText = document.createTextNode('<');
+  prevButton.appendChild(prevText);
+  caroDiv.appendChild(prevButton);*/
+  document.getElementById('prev-nav').style.opacity = '1';
+  document.getElementById('next-nav').style.opacity = '1';
   for (let i = 0; i < collectedArray.length; i++) {
     let slide = document.createElement("div");
     let slideRomaji = document.createElement("p");
@@ -425,11 +454,13 @@ function fillCaro(caroDiv) {
 
     let r = collectedArray[i][0];
     let rText = document.createTextNode(r);
-    let slotHText = document.createTextNode('H');
-    let slotKText = document.createTextNode('K');
+    //let slotHText = document.createTextNode('H');
+    //let slotKText = document.createTextNode('K');
 
-    slotH.appendChild(slotHText);
-    slotK.appendChild(slotKText);
+    //slotH.appendChild(slotHText);
+    //slotK.appendChild(slotKText);
+    slotH.setAttribute('placeholder', 'H');
+    slotK.setAttribute('placeholder', 'K');
     slotH.classList.add('answer-slot');
     slotK.classList.add('answer-slot');
     slotH.addEventListener('click', selectHK, 'h');
@@ -443,6 +474,10 @@ function fillCaro(caroDiv) {
     slide.classList.add('caro-slides');
     caroDiv.appendChild(slide);
   }
+  /*let nextButton = document.createElement("button");
+  let nextText = document.createTextNode('>');
+  nextButton.appendChild(nextText);
+  caroDiv.appendChild(nextButton);*/
 }
 
 function caro(direction) {
@@ -503,6 +538,49 @@ function checkTest() {
       }
     }
   }
+
   console.log(completedAnswers);
   console.log(collectedArray);
+
+  let romajiForm = document.getElementById('romform');
+
+  let theDate = new Date();
+  let dateInput = document.createElement("input");
+  dateInput.setAttribute('type', 'textbox');
+  dateInput.setAttribute('name', 'testdate');
+  dateInput.value = theDate;
+  romajiForm.appendChild(dateInput);
+
+  let time = theDate.getDay();
+  //let timeInput = document.createElement()
+
+  for (let a = 0; a < collectedArray.length; a++) {
+    let input, inputText;
+    let romaji = collectedArray[a][0];
+
+    input = document.createElement("input");
+    input.setAttribute('type', 'textbox');
+    input.setAttribute('name', 'romaji')
+    //inputText = document.createTextNode(romaji.toString());
+    romajiForm.appendChild(input);
+    input.value = romaji;
+    console.log(collectedArray[a][0]);
+  }
 }
+
+/*
+function toggleKanji() {
+  let gkt = document.getElementById("gets-kanji-title");
+  let allKanji = document.getElementsByClassName("kanjinp");
+  let kanjiRow, kanjiBox, kanjiText;
+
+  for (let i = 0; i < allKanji; i++) {
+    kanjiText = document.createTextNode(allKanji[i]);
+    kanjiBox = document.createElement("div");
+    kanjiBox.appendChild(kanjiText);
+
+  }
+}*/
+
+
+//window.onload = navigate('patterns');

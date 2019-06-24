@@ -1,0 +1,1158 @@
+/* japanese */
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+body {
+  color: #686868;
+  font-family: 'Nunito';
+  margin: 0 auto;
+}
+
+#wordbank {
+  text-align: center;
+  background: #6CC088;
+  /*background: radial-gradient(rgb(82, 233, 0), rgb(0, 120, 5)) center center / cover no-repeat fixed;*/
+  margin-top: 0px;
+  padding: 4px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 500;
+}
+
+.start-btn {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  top: 75px;
+  border: 1px solid #6CC088;
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: 300;
+  color: #686868;
+  opacity: 0;
+  width: 210px;
+  cursor: pointer;
+  animation: appear 1s ease-out 3.5s forwards;
+}
+
+.kanji-test-btn {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #6CC088;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: 300;
+  color: #686868;
+  opacity: 1;
+  width: 210px;
+  cursor: pointer;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.hk-text {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  text-align: center;
+}
+
+.test-result {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 375px;
+  margin-bottom: 10px;
+  padding: 4px;
+  border: 1px solid #6CC088;
+  border-radius: 6px;
+}
+
+.romaji-list li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+#get-list li {
+  list-style-type: none;
+  display: block;
+  height: 100%;
+}
+
+.lefty {
+  position: relative;
+  display: inline-block;
+}
+
+.righty {
+  position: relative;
+  display: inline-block;
+}
+
+@media (max-width: 480px) and (min-width: 250px) {
+  .table-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .box-half {
+    font-size: 14px;
+  }
+
+  .boxhalf {
+    font-size: 14px;
+  }
+}
+
+.table-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  padding: 2px;
+  margin: 2px;
+  position: relative;
+  float: left;
+  background: rgba(108, 192, 136, 0.2);
+  border: 1px solid rgba(108, 192, 136, 0.2);
+  transition: 0.5s;
+}
+
+.table-box div {
+  transition: 0.5s;
+}
+
+.box-romaji {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding: 2px 2px 0px 2px;
+}
+
+.box-hiragana {
+  position: relative;
+  float: left;
+  width: 42%;
+  text-align: center;
+  padding: 2px;
+}
+
+.box-katakana {
+  position: relative;
+  float: left;
+  width: 42%;
+  text-align: center;
+  padding: 2px;
+}
+
+/* patterns */
+.pattern {
+  padding: 6px;
+}
+
+
+.topic-content {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  background: white;
+  width: 400px;
+  top: 100px;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+#character-similarities {
+  overflow-x: auto;
+}
+
+/* sentence order */
+.sentence-text {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  float: left;
+  margin-bottom: 5px;
+}
+
+#sentence-order {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  left: 25%;
+}
+
+.language-title {
+  text-align: center;
+}
+
+.sentence-structure {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 275px;
+  background: rgba(108, 192, 136, 0.2);
+  margin-top: 35px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  top: 10px;
+}
+
+.example-title {
+  text-align: center;
+}
+
+.combo-example {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  left: 8%;
+}
+
+.topic {
+  position: relative;
+  margin-right: 4px;
+  margin-left: 4px;
+  padding: 4px;
+  background: none;
+  display: inline-block;
+}
+
+.translation-tag {
+  font-style: bold;
+  width: 40px;
+}
+
+.number {
+  width: 18px;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  float: left;
+  left: -5px;
+}
+
+/*
+.translation-example {
+  width: 375px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}*/
+
+/* match game */
+.match-list {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.match-list li {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+#made-kanji-here {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 375px;
+}
+
+
+/* mobile layout */
+#niheigo {
+  text-align: center;
+  background: #6CC088;
+  margin-top: 0px;
+  padding: 4px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 100;
+}
+
+.section-title {
+  position: relative;
+  top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-decoration: underline;
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* footer */
+#nav-list-container-bottom {
+  position: fixed;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  bottom: 0px;
+  text-align: center;
+  float: left;
+  z-index: 499;
+}
+
+.nav-list-btm {
+  background: #6CC088;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  z-index: 100;
+  width: 100%;
+  padding-bottom: 4px;
+  padding-left: 0px;
+}
+
+.nav-list-li-btm {
+  display: inline-block;
+  list-style-type: none;
+  height: 35px;
+  width: 32%;
+  color: white;
+}
+
+.nav-list-li-btm:hover {
+  color: white;
+  background: #686868;
+}
+
+.navigation-link {
+  position: relative;
+  top: 10px;
+}
+
+#interact-box {
+  background: white;
+  height: 0;
+  transition: 1s ease;
+  overflow-y: scroll;
+  position: fixed;
+  width: 30px;
+  bottom: 37px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #6CC088;
+  border-radius: 4px;
+  opacity: 0;
+}
+
+#added-count {
+  padding: 4px;
+  display: inline-block;
+  position: relative;
+}
+
+#addball {
+  width: 20px;
+  height: 20px;
+  border-radius: 25%;
+  box-shadow: 0px 0px 4px 0px;
+  border: 1px solid #6CC088;
+  transition: 0.5s;
+  display: inline-block;
+  color: #6CC088;
+  margin-top: 4px;
+}
+
+#addball:hover {
+  color: white;
+  background: #6CC088;
+}
+
+#arrow {
+  padding: 4px;
+}
+
+.ib-top-contents {
+  position: relative;
+  display: inline-block;
+}
+
+#ib-selection {
+  text-align: center;
+  transition: 0.5s;
+}
+
+.collected-content {
+  width: 30%;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+/* middle content general */
+.topic-container {
+  display: none;
+  position: relative;
+  top: 40px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-bottom: 40px;
+  height: 700px;
+}
+
+#start-content {
+  display: block;
+  top: 50px;
+}
+
+#table-content {
+  display: none;
+  margin-bottom: 50px;
+}
+
+#sentences-content {
+  text-align: center;
+  display: none;
+  width: 100%;
+}
+
+#patterns-content {
+  text-align: center;
+  display: none;
+  width: 100%;
+}
+
+#match-content {
+  text-align: center;
+  display: none;
+  width: 100%;
+  margin-bottom: 50px;
+  top: 50px;
+}
+
+#rhk-table {
+  overflow-y: auto;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 300px;
+}
+
+/* table & pattern content */
+#rhk-table-wrapper {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+#patterns-body {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  left: 65px;
+}
+
+.controls-container {
+  width: 100%;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.controls-container button {
+  width: 49%;
+  padding: 4px;
+  background: none;
+  border-radius: 4px;
+  left: 2px;
+  position: relative;
+}
+
+/* sentence structure */
+#phraselist-btn {
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+#je-toggle {
+  position: relative;
+  left: 10px;
+  top: 10px;
+  display: block;
+  margin: 0 auto;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+.phrases {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  padding: 4px;
+  border-radius: 4px;
+  background: rgba(108, 192, 136, 0.2);
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+/* box-none */
+.box-none {
+  background: white;
+  border: 1px solid white;
+}
+
+/* match test */
+#gets-test {
+  transition: 0.5s;
+  margin-bottom: 20px;
+  height: auto;
+}
+
+#test-title {
+  transition: 0.5s;
+}
+
+.match-list-test {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  padding: 6px;
+  transition: 0.5s;
+}
+
+.match-list-test li {
+  list-style-type: none;
+  display: inline-block;
+  padding-left: 6px;
+  padding-right: 6px;
+  background: rgba(108, 192, 136, 0.2);
+  border-radius: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#gets-choice {
+  margin-bottom: 20px;
+}
+
+.match-list-choice {
+  display: none;
+  margin: 0 auto;
+  position: relative;
+  padding: 6px;
+}
+
+.match-list-choice li {
+  list-style-type: none;
+  display: inline-block;
+  padding-left: 6px;
+  padding-right: 6px;
+  border: 1px solid rgba(108, 192, 136, 0.75);
+  border-radius: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.answer-options li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#the-carousel {
+  /*border: 1px solid rgba(108, 192, 136, 0.75);*/
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+.button-container {
+  height: 45px;
+  margin-bottom: 8px;
+}
+
+.caro-nav {
+  border: none;
+  position: relative;
+  width: 45%;
+  height: 40px;
+  opacity: 0;
+  transition: 0.5s;
+  background: rgba(108, 192, 136, 0.2);
+  padding: 4px
+}
+
+#prev-nav {
+  float: left;
+  left: 10px;
+}
+
+#next-nav {
+  float: right;
+  left: -10px;
+}
+
+#caro-slide {
+  position: relative;
+  float: left;
+  text-align: left;
+  padding: 4px;
+  width: 100%;
+  left: 50px;
+}
+
+.caro-slides {
+  display: inline-block;
+  transition: 0.5s;
+  position: relative;
+  font-size: 32px;
+  padding: 6px;
+}
+
+.answer-slot {
+  display: inline-block;
+  margin: 0 auto;
+  border: 2px solid rgba(108, 192, 136, 0.5);
+  border-radius: 4px;
+  position: relative;
+  font-weight: 100;
+  padding: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: rgba(108, 192, 136, 0.5);
+  width: 75px;
+  height: 75px;
+}
+
+.selected-slot {
+  border: 2px solid rgba(108, 192, 136, 1);
+}
+
+.answered-slot {
+  color: rgba(108, 192, 136, 1);
+  border: 2px solid rgba(108, 192, 136, 0.5);
+  background: rgba(108, 192, 136, 0.2)
+}
+
+#check-btn {
+  display: none;
+  margin: 0 auto;
+  position: relative;
+}
+
+#verb-inp {
+  border-radius: 4px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.verb-btn {
+  display: inline-block;
+  position: relative;
+}
+
+#kanji-here {
+  font-size: 80px;
+  text-align: center;
+  color: black;
+}
+
+#eigo-here {
+  font-size: 30px;
+  text-align: center;
+  color: black;
+}
+
+/* kanji input form */
+#gets-kanj {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 375px;
+}
+
+.kanji-form-title-wrapper {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  text-align: center;
+  top: 100px;
+}
+
+#kanji-form-title {
+  color: rgba(108, 192, 136, 0.5);
+  text-decoration: underline;
+  position: relative;
+  z-index: 500;
+}
+
+#kanji-form-wrapper {
+  position: relative;
+  display: none;
+  margin: 0 auto;
+  padding-top: 6px;
+  padding-bottom: 12px;
+  top: 200px;
+  width: 600px;
+}
+
+#the-kanji-form {
+  transform: scale(0);
+}
+
+#ognew-kanji-box {
+  width: 100%;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  background: rgba(108, 192, 136, 0.5);
+  box-shadow: 0px 0px 10px #353535;
+}
+
+.インプト {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  font-size: 18px;
+  border-radius: 6px;
+  text-align: center;
+  border: none;
+}
+
+.kanji-of-db {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  font-size: 24px;
+  border-radius: 6px;
+  text-align: center;
+  border: none;
+}
+
+#og-first-kanji-row {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 60px;
+}
+
+.ogk-first-row-container {
+  position: relative;
+  display: inline-block;
+  width: 45%;
+  padding: 2%;
+  float: left;
+  height: 40px;
+}
+
+
+.kanjinp {
+  width: 100%;
+  z-index: 100;
+}
+/*
+.readinp {
+  width: 100%;
+  z-index: 200;
+}*/
+
+#ogmeaning-input-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  padding: 4px;
+}
+
+.meaninp {
+  width: 96%;
+  height: 40px;
+}
+
+#ogexamples-input-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 4px;
+}
+
+.exinp {
+  width: 31%;
+  position: relative;
+  display: inline-block;
+  height: 30px;
+}
+
+.kanji-container {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.new-kanji-box {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: block;
+  background: white;
+  border: 2px solid rgba(108, 192, 136, 0.3);
+  padding: 4px;
+  margin: 4px;
+  border-radius: 6px;
+  float: left;
+}
+
+.first-kanji-row {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid rgba(108, 192, 136, 0.5);
+  padding-bottom: 6px;
+}
+
+.kanji-input-container {
+  position: relative;
+  display: block;
+  width: 45%;
+  padding: 4px;
+  float: left;
+  left: 5px;
+}
+
+.reading-input-container {
+  position: relative;
+  display: block;
+  width: 45%;
+  padding: 4px;
+  float: right;
+}
+
+.kun {
+  margin-bottom: 5px;
+}
+
+.meaning-input-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  padding: 4px;
+
+}
+
+.examples-input-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 4px;
+  border-top: 1px solid rgba(108, 192, 136, 0.5);
+}
+
+/* kanji modal */
+.card-modal {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  transform: scale(0);
+  transition: 0.5s;
+  background: rgba(108, 192, 136, 1);
+  box-shadow: 0px 0px 4px 0px;
+  z-index: 400;
+  top: -300px;
+  border-radius: 6px;
+}
+
+.close-card {
+  padding: 6px;
+  position: relative;
+  float: right;
+  left: -5px;
+  top: 0px;
+  color: white;
+  width: 10px;
+  display: block;
+  text-align: right;
+  z-index: 400;
+}
+
+.cm-first-row {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  padding: 10px;
+  height: 60px;
+  padding-top: 20px;
+}
+
+.cm-gets-kanji {
+  position: relative;
+  display: block;
+  width: 30%;
+  float: left;
+  left: 5px;
+  padding: 4px;
+  text-align: center;
+  background: white;
+  font-size: 30px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.kanji-p {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.cm-readings {
+  position: relative;
+  display: block;
+  width: 47%;
+  float: right;
+  left: -5px;
+  padding: 4px;
+  background: white;
+  font-size: 20px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.cm-gets-on {
+  position: relative;
+  display: inline-block;
+  padding: 8px;
+  width: 42%;
+  text-align: center;
+  border-right: 1px solid rgba(108, 192, 136, 1);
+}
+
+.cm-gets-kun {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 42%;
+}
+
+.onkun-p {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.cm-second-row {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  padding: 10px;
+  height: 50px;
+  background: white;
+}
+
+.cm-gets-examples {
+  padding: 4px;
+  height: 30px;
+  overflow-y: scroll;
+}
+
+.cm-example {
+  width: 32%;
+  margin-right: 0px;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 3px solid rgba(108, 192, 136, 1);
+}
+
+/* toggle styling */
+#toggle-kanji {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* new kanji slides */
+.test-row {
+  width: 100%;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  top: 200px;
+}
+
+.kanji-slide-num {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.test-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: 1s;
+}
+
+#check-kanji-btn {
+  display: none;
+  margin: 0 auto;
+  position: relative;
+  border: 1px solid #6CC088;
+  padding: 14px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  width: 200px;
+  color: #686868;
+  border-radius: 4px;
+}
+
+
+.test-slide {
+  width: 375px;
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  float: left;
+  padding: 20px;
+  transition: 1s ease;
+}
+
+.kanji-wrapper {
+  font-size: 100px;
+  height: 150px;
+  padding-bottom: 20px;
+}
+
+.answer-wrapper {
+  width: 50%;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #686868;
+  border-radius: 6px;
+  padding: 6px;
+  height: 20px;
+  margin-bottom: 30px;
+}
+
+.all-choices-wrapper {
+  width: 100%;
+  height: 100px;
+}
+
+.choice-wrapper {
+  width: 44%;
+  padding: 2.43%;
+  position: relative;
+  float: left;
+  font-size: 20px;
+  background: #6CC088;
+  border: 2px solid white;
+  border-radius: 6px;
+  color: white;
+}
+
+
+.test-nav-wrapper {
+  width: 100%;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  float: left;
+}
+
+.nav-btn-wrapper {
+  background: white;
+  border: none;
+  position: relative;
+  padding: 8px;
+}
+
+.nav-left {
+  float: left;
+  padding-left: 20px;
+}
+
+.nav-right {
+  float: right;
+  padding-right: 20px;
+}
+
+.rooms-nav-btn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+}
+
+@media (max-width: 900px) and (min-width: 300px) {
+  #ognew-kanji-box {
+    width: 90%;
+  }
+
+  #ogkanji-input-container {
+    left: 0px;
+  }
+
+  .exinp {
+    width: 30%;
+  }
+
+  .examples-input-container {
+    width: 95%;
+  }
+
+  .test-result {
+    width: 90%;
+  }
+
+  .card-modal {
+    width: 300px;
+  }
+
+  .cm-reading {
+    font-size: 16px;
+  }
+
+  .cm-gets-on {
+    width: 40%;
+  }
+
+  .cm-second-row {
+    width: 93.5%;
+  }
+}

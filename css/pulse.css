@@ -1,0 +1,169 @@
+/* intro animation */
+
+.niheigo-pulse {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 50%;
+  }
+
+  25% {
+    transform: scale(3) rotate(45deg);
+    border-radius: 0%;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 50%;
+  }
+}
+
+#midpage-internal {
+  position: relative;
+  width: 50%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  top: 25px;
+}
+
+.circle-container {
+	position: relative;
+  display: block;
+  margin: 0 auto;
+	width: 20em;
+	height: 20em;
+	/*padding: 2.8em; = 2em * 1.4 (2em = half the width of an img, 1.4 = sqrt(2))*/
+	/*border: dashed 2px;*/
+	border-radius: 50%;
+  transition: 0.5s;
+  transform: scale(0.9);
+}
+
+.circle-container a {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	top: 50%;
+  left: 50%;
+	width: 4em;
+  height: 4em;
+	margin: -2em; /* 2em = 4em/2 */ /* half the width */
+  background: white;
+  color: black;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 5px white;
+}
+
+.circle-container a:hover {
+  cursor: pointer;
+}
+
+.circle-container a:hover .outer-element {
+  transform: scale(1.125);
+}
+
+@media (max-width: 850px) and (min-width: 600px) {
+  .circle-container {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 599px) and (min-width: 300px) {
+  .circle-container {
+    transform: scale(0.5);
+  }
+}
+
+.center-ele {
+  position: relative;
+  top: 150px;
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  transition: 0.5s;
+  font-size: 32px;
+  color: #6CC088;
+  opacity: 0;
+  transition: 5s;
+}
+
+.outer-element {
+  padding-top: 15px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  transition: 0.25s;
+  -webkit-transition: 0.25s;
+  font-size: 32px;
+  color: #6CC088;
+}
+
+.el1 {
+  transform: rotate(45deg) translate(12em) rotate(-45deg);
+} /* 15em = half the width of the wrapper */
+
+.el2 {
+  transform: rotate(135deg) translate(12em) rotate(-135deg);
+}
+.el3 {
+  transform: rotate(225deg) translate(12em) rotate(-225deg);
+}
+.el4 {
+  transform: rotate(315deg) translate(12em) rotate(-315deg);
+}
+
+.oe {
+  transition: 4s cubic-bezier(0.2, 0.01, 0.33, 0.99);
+}
+
+.center {
+  transform: rotate(270deg) translate(15em) rotate(-270deg);
+}
+
+.outer-element {
+  padding-top: 15px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  transition: 0.25s;
+  -webkit-transition: 0.25s;
+}
+
+#clickme {
+  position: relative;
+  top: -100px;
+}
+
+/* nsa = next slide animation reveal */
+@keyframes nsar {
+  0% {
+    transform: 'translateX(50px)';
+    opacity: 0;
+  }
+
+  100% {
+    transform: 'translateX(0px)';
+    opacity: 1;
+  }
+}
+
+/* psah = previous slide animation hide */
+@keyframes psah {
+  0% {
+    transform: 'translateX(0px)';
+    opacity: 1;
+  }
+
+  100% {
+    transform: 'translateX(-50px)';
+    opacity: 0;
+  }
+}

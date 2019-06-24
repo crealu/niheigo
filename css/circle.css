@@ -1,0 +1,68 @@
+/* circle styling */
+
+#midpage-internal {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 350px;
+  height: 400px;
+  text-align: center;
+}
+
+.circle-container {
+  position: relative;
+  width: 20em;
+  height: 20em;
+  padding: 1.0em;
+  border: dashed 2px #6CC088;
+  border-radius: 50%;
+  margin: 1.75em auto 0;
+  transition: 0.5s;
+  transform: scale(0.9);
+}
+
+.center-ele {
+  position: relative;
+  top: 115px;
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+  transition: 0.5s;
+}
+
+.circle-container a {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4em;
+  height: 4em;
+  margin: -2em;
+  background: white;
+  color: black;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 5px #6CC088;
+}
+
+.el1 {
+  transform: rotate(90deg) translate(11em) rotate(-90deg);
+}
+
+.el2 {
+  transform: rotate(225deg) translate(11em) rotate(-225deg);
+}
+
+.el3 {
+  transform: rotate(315deg) translate(11em) rotate(-315deg);
+}
+
+.outer-element {
+    padding-top: 15px;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    transition: 0.25s;
+    -webkit-transition: 0.25s;
+}
